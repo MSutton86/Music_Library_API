@@ -66,6 +66,11 @@ TEMPLATES = [
         },
     },
 ]
+# Rest_FRAMEWORK = {
+#     'COERCE_DECIMAL_TO_STRING': False
+# }
+
+
 
 WSGI_APPLICATION = 'music_library_project.wsgi.application'
 
