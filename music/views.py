@@ -1,5 +1,7 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
 from .serializers import MusicSerializer
 from .models import Music
 
@@ -20,11 +22,6 @@ def music_list(request):
 
 @api_view(['GET'])
 def music_detail(request, pk):
-    try:
-        music = Music.objects.get(pk=pk)
-        serializer = MusicSerializer();
-        return Response(music)
-
-    except Music.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND);
-    
+    music = get_object_or_404(Music, pk=pk)
+    serializer = MusicSerializer(music);
+    return Response(serializer.data)
