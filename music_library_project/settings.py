@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'music',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'music_library_project.urls'
@@ -70,6 +72,7 @@ TEMPLATES = [
 #     'COERCE_DECIMAL_TO_STRING': False
 # }
 
+CORS_ORIGIN_ALLOW_ALL=True
 
 
 WSGI_APPLICATION = 'music_library_project.wsgi.application'
